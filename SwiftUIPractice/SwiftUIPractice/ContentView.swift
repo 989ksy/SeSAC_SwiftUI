@@ -25,17 +25,18 @@ struct ContentView: View {
                 .ignoresSafeArea()
             
             VStack {
-                Text("NEXFLIX")
+                Text("NETFLIX")
                     .font(.title)
                     .fontWeight(.black)
                 .foregroundStyle(.red)
                 
-                TextField("", text: $email, prompt: Text("이메일 주소 또는 전화번호").foregroundColor(Color.white))
-                    .padding(10)
-                    .background(Color.gray)
-                    .foregroundStyle(.black)
-                    .clipShape(RoundedRectangle(cornerRadius: 5))
-                    .padding(.horizontal)
+                Spacer()
+                
+                textfieldRequirementView(text: $email, placeHolder: "이메일 주소 또는 전화번호")
+                textfieldRequirementView(text: $password, placeHolder: "비밀번호")
+                textfieldRequirementView(text: $nickname, placeHolder: "닉네임")
+                textfieldRequirementView(text: $location, placeHolder: "위치")
+                textfieldRequirementView(text: $code, placeHolder: "추천 코드 입력")
                 
                 Button(action: {
                     print("logined!")
@@ -57,6 +58,8 @@ struct ContentView: View {
                         .padding(.horizontal, 35)
                 }
                 
+                Spacer()
+                
             }
             
                 
@@ -69,4 +72,21 @@ struct ContentView: View {
 
 #Preview {
     ContentView()
+}
+
+struct textfieldRequirementView: View {
+    
+    @Binding var text : String
+    let placeHolder : String
+    
+    var body: some View {
+
+        TextField("", text: $text, prompt: Text(placeHolder).foregroundColor(Color.white))
+            .padding(10)
+            .background(Color.gray)
+            .foregroundStyle(.black)
+            .clipShape(RoundedRectangle(cornerRadius: 5))
+            .padding(.horizontal)
+            .multilineTextAlignment(.center)
+    }
 }
