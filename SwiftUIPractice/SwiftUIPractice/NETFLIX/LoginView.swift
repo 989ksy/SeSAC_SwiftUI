@@ -11,6 +11,8 @@ import SwiftUI
 
 struct LoginView: View {
     
+    @State var isPresented = false
+    
     var body: some View {
         
         @State var email : String = ""
@@ -19,9 +21,6 @@ struct LoginView: View {
         @State var location : String = ""
         @State var code : String = ""
         @State var isOn : Bool = true
-        
-        @State var isPresented = false
-        
 
         ZStack {
             Color.black
@@ -53,10 +52,6 @@ struct LoginView: View {
                         .background(.white)
                 })
                 .clipShape(RoundedRectangle(cornerRadius: 5))
-                .fullScreenCover(isPresented: $isPresented, content: {
-                    ContentView()
-                })
-
                 
                 HStack {
                     
@@ -69,10 +64,11 @@ struct LoginView: View {
                 Spacer()
                 
             }
-            
-                
-            
+        
         }//ZStack
+        .fullScreenCover(isPresented: $isPresented, content: {
+            ContentView()
+        })
         
     }//body
     

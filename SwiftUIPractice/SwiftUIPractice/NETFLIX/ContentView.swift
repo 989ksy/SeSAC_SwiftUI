@@ -100,7 +100,7 @@ struct ContentView: View {
                         .resizable()
                         .frame(width: 120, height: 150)
                         .clipShape(Circle())
-                        .overlay(Circle().stroke(Color.purple, lineWidth: 3))
+                        .overlay(Circle().stroke(Color.blue, lineWidth: 3))
 
                     Image("퍼펙트게임")
                         .resizable()
