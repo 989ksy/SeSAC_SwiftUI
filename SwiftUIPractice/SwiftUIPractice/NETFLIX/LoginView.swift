@@ -20,6 +20,8 @@ struct LoginView: View {
         @State var code : String = ""
         @State var isOn : Bool = true
         
+        @State var isPresented = false
+        
 
         ZStack {
             Color.black
@@ -40,6 +42,7 @@ struct LoginView: View {
                 textfieldRequirementView(text: $code, placeHolder: "추천 코드 입력")
                 
                 Button(action: {
+                    isPresented = true
                     print("logined!")
                 }, label: {
                     Text("회원가입")
@@ -50,6 +53,10 @@ struct LoginView: View {
                         .background(.white)
                 })
                 .clipShape(RoundedRectangle(cornerRadius: 5))
+                .fullScreenCover(isPresented: $isPresented, content: {
+                    ContentView()
+                })
+
                 
                 HStack {
                     
