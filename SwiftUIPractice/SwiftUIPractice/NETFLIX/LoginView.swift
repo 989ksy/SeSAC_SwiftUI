@@ -9,7 +9,7 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct LoginView: View {
     
     var body: some View {
         
@@ -71,7 +71,7 @@ struct ContentView: View {
 }//view
 
 #Preview {
-    ContentView()
+    LoginView()
 }
 
 struct textfieldRequirementView: View {
